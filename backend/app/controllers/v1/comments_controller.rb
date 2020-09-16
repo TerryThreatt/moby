@@ -1,9 +1,10 @@
 module v1
-    class DiscussionsController < ApplicationController
+   class CommentsController < ApplicationController
         def index
         end
 
         def create
-        end 
+        end
+
     end
 end
