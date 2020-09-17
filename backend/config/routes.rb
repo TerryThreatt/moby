@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :comments
   namespace :v1 do
     resources :users, only: [:create, :destroy]
     resources :books do
-      resources :discussions
-    end 
+      resources :discussions do
+        resources :comments
+      end
+    end
   end
 end
