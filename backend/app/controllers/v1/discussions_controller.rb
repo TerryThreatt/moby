@@ -4,6 +4,16 @@ module v1
         end
 
         def create
-        end 
+        end
+
+        private
+        
+        def set_discussion
+            @discussion = Discussion.find(params[:id])
+        end
+
+        def discussion_params
+            params.require(:discussion).permit(:title, :body, :book_id, :user_id)
+        end
     end
 end
