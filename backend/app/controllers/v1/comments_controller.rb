@@ -1,9 +1,18 @@
 module v1
    class CommentsController < ApplicationController
         def index
+            @comments = Comment.all
         end
 
         def create
+            discussion = Book.find(params[:discussion_id])
+            @comment = discussion.comments.build(comment_params)
+
+            if @comment.save
+                render json: @comment, status: :created
+            else
+                render json: @comment.errors, status: :unprocessable_entity
+            end
         end
 
         private
