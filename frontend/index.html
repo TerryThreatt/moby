@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moby</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="application/javascript" src="src/index.js"></script>
 </body>
+        <!-- Navbar -->
+        <nav class="nav-extended" id="navbar">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo">Moby</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Home</a></li>
+                <li><a href="badges.html">Profile</a></li>
+                <li><a href="collapsible.html">Log in/out</a></li>
+              </ul>
+            </div>
+            <div class="nav-content">
+              <ul class="tabs tabs-transparent">
+                <li class="tab"><a href="#test1">My Books</a></li>
+                <li class="tab"><a class="active" href="#test2">My Discussions</a></li>
+                <li class="tab"><a href="#test3">My Comments</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="sass.html">Home</a></li>
+            <li><a href="badges.html">Profile</a></li>
+            <li><a href="collapsible.html">Log in/out</a></li>
+          </ul>
+
+          <div id="test1" class="col s12">My Books</div>
+          <div id="test2" class="col s12">My Discussions</div>
+          <div id="test3" class="col s12">My comments</div>
 </head>
 <body>
 
