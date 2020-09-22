@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class API::VI::CommentsController < ApplicationController
         def index
             @comments = Comment.all
         end
@@ -24,4 +24,4 @@ class CommentsController < ApplicationController
             params.require(:comment).permit(:body, :discussion_id, :book_id, :user_id)
         end
 
-    end
+end

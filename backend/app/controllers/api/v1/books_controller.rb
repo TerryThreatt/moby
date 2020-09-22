@@ -1,5 +1,5 @@
 
-  class BooksController < ApplicationController
+  class API::V1::BooksController < ApplicationController
     before_action :set_book, only: [:show, :update, :destroy]
 
     def index
