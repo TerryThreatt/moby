@@ -11,9 +11,9 @@ class UsersController < ApplicationController
     end
 
     def login
-        @user = User.find_by(email: params[:email])
+        @user = User.find_by_email(params[:email])
 
-        if @user & @user.authenticate(params[:password])
+        if @user.authenticate(params[:password])
             render json: @user, status: :created
         else
             render json: @user.errors, status: :unprocessable_entity
