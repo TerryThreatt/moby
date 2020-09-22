@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  post '/signup', to: 'user#signup', as: 'signup'
-  post '/login', to: 'user#login', as: 'login'
-  delete 'logout', to: 'user#logout', as: 'logout'
+  post '/signup', to: 'users#signup'
+  post '/login', to: 'users#login'
+  delete '/logout', to: 'users#logout'
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:signup, :login, :logout] do
+      resources :users do
         resources :books do
           resources :discussions do
             resources :comments
