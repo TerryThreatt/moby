@@ -1,5 +1,4 @@
-module v1
-   class CommentsController < ApplicationController
+class CommentsController < ApplicationController
         def index
             @comments = Comment.all
         end
@@ -26,4 +25,3 @@ module v1
         end
 
     end
-end

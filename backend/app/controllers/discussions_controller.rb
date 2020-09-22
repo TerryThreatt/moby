@@ -1,5 +1,4 @@
-module v1
-    class DiscussionsController < ApplicationController
+class DiscussionsController < ApplicationController
         def index
             @discussions = Discussion.all
         end
@@ -25,4 +24,3 @@ module v1
             params.require(:discussion).permit(:title, :body, :book_id, :user_id)
         end
     end
-end

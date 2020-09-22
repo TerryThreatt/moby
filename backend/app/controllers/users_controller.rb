@@ -1,8 +1,7 @@
-module v1
-  class UsersController < ApplicationController
+class UsersController < ApplicationController
 
         def create
-            @user = User.find_or_create_by(user_params)
+            @user = User.new(user_params)
 
             if @user.save
                 render json: @user, status: :created
@@ -22,4 +21,3 @@ module v1
             params.requre(:user).permit(:username, :email, :password)
         end
     end
-end
