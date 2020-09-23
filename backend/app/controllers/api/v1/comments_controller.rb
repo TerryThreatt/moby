@@ -1,6 +1,7 @@
 class API::VI::CommentsController < ApplicationController
         def index
-            @comments = Comment.all
+            discussion = Discussion.find(params[:discussion_id])
+            @comments = discussion.comments.all
         end
 
         def create
