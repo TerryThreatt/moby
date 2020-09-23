@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
     has_many :discussions
     has_many :users, through: :discussions
-    valdidates :title, :author, presence: true
+    validates :title, :author, presence: true
 end

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   post '/signup', to: 'users#signup'
   post '/login', to: 'users#login'
-  delete '/logout', to: 'users#logout'
 
   namespace :api do
     namespace :v1 do
