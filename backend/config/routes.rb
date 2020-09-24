@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
-
-  post '/signup', to: 'users#signup'
-  post '/login', to: 'users#login'
+  get '/discussions', to: 'discussions#public', as: 'public_discussions'
+  get '/discussions/:discussion_id/comments', to: 'discussions#index', as: 'public_comments'
 
   namespace :api do
     namespace :v1 do
-      resources :users do
-        resources :books do
-          resources :discussions do
-            resources :comments
-          end
-        end
-      end
+      resources :books
+      resources :reviews
     end
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_213602) do
+ActiveRecord::Schema.define(version: 2020_09_24_212010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,33 +24,13 @@ ActiveRecord::Schema.define(version: 2020_09_22_213602) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.bigint "discussion_id"
-    t.index ["discussion_id"], name: "index_comments_on_discussion_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "discussions", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.bigint "book_id", null: false
-    t.bigint "user_id", null: false
-    t.string "title"
     t.string "body"
-    t.string "comments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_discussions_on_book_id"
-    t.index ["user_id"], name: "index_discussions_on_user_id"
+    t.index ["book_id"], name: "index_reviews_on_book_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-  end
-
-  add_foreign_key "discussions", "books"
+  add_foreign_key "reviews", "books"
 end
