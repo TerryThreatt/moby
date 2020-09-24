@@ -1,6 +1,6 @@
 const BACKEND_URL = 'http://localhost:3000/api/v1';
 const ALLDISCUSSIONS_URL = `${BACKEND_URL}/discussions`
-const ALLCOMMENTS_URL = `${BACKEND_URL}/discussions`
+const ALLCOMMENTS_URL = `${BACKEND_URL}/discussions/${discussion_id}/comments`
 
 const renderHomepage = () => {
     // elements

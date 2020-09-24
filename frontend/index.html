@@ -3,55 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moby - Book Discussion App</title>
+    <title>Moby - Book Review App</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="application/javascript" src="src/index.js"></script>
 </head>
 <body>
-        <!-- Navbar -->
-        <nav class="nav-extended" id="navbar">
-            <div class="nav-wrapper #7986cb indigo lighten-2">
-              <a href="#" class="brand-logo" id='logo'><i class="material-icons">forum</i>Moby</a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="badges.html"><i class="material-icons">person</i></a></li>
-                <li><a href="http://localhost:3000/signup" id="signUp">Sign Up</a></li>
-                <li><a href="collapsible.html">Log In</a></li>
-              </ul>
-            </div>
-            <div class="nav-content indigo lighten-4 center-align">
-              <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="#books" class="active">My Books</a></li>
-                <li class="tab"><a href="#discussions">My Discussions</a></li>
-                <li class="tab"><a href="#comments">My Comments</a></li>
-              </ul>
-            </div>
-          </nav>
 
-          <ul class="sidenav center-align" id="mobile-demo">
-            <li><a href="sass.html">Home</a></li>
-            <li><a href="badges.html">Profile</a></li>
-            <li><a href="collapsible.html">Log In</a></li>
-          </ul>
+    <div class="container">
+
+        <header>
+            <h2>Moby - Book Review App</h2>
+            <h5>You place to review your favorite books.</h5>
+        </header>
 
         <div class="container">
-            <header>
-                <h1>Book Discussion App</h1>
-                <h5>You place to discuss your favorite book!</h5>
-            </header>
-
-            <main>
-                <div id="books" class="col s12" id="search">Search</div>
-                <div id="discussions" class="col s12" id="discussion">Discussions:</div>
-                <div id="comments" class="col s12">My comments</div>
-                <div id="books" class="col s12">My Books</div>
-                <div id="discussions" class="col s12">My Discussions</div>
-                <div id="comments" class="col s12">My comments</div>
-            </main>
+            <form class="search" action="action_page.php">
+                <input type="text" placeholder="Search for a book" name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
+
+        <div class="container">
+            <form class="review">
+              <h3>Create a review!</h3>
+
+              <input type="textarea" name="review" value="" placeholder="Enter a review"/>
+              <input type="submit" name="submit" value="Create New Review"/>
+            </form>
+          </div>
+
+        <div id="reviews"></div>
+
+    </div>
 
 </body>
 
