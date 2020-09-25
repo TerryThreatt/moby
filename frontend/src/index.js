@@ -1,13 +1,15 @@
 // routes
 const BASE_URL = 'http://localhost:5500/';
 const BACKEND_URL = 'http://localhost:3000/api/v1';
-const ALLBOOKS_URL = `${BACKEND_URL}/books`
-const ALLREVIEWS_URL = `${BACKEND_URL}/reviews`
+const ALLBOOKS_URL = `${BACKEND_URL}/books`;
+const ALLREVIEWS_URL = `${BACKEND_URL}/reviews`;
 
 // elements
+const reviews = document.getElementById('reviews');
 
+// load content
 document.addEventListener('DOMContentLoaded', () => {
-
+    init
 });
 
 const init = () => {
@@ -24,7 +26,7 @@ const renderHomepage = () => {
 
     // append
     div.appendChild(p)
-    content.appendChild(div)
+    reviews.appendChild(div)
 }
 
 const getDiscussions = () => {
