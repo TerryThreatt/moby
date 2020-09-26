@@ -4,8 +4,8 @@ class Book {
     constructor(book) {
         this.id = book.id
         this.title = book.title
-        this.author = book.author
-        this.genre = book.genre
+        this.author = book.author 
+        this.genre = book.genre || "n/a"
         this.reviews = book.reviews
 
         Book.allBooks.push(this)
@@ -49,7 +49,7 @@ class Book {
         this.reviews.forEach(review => {
 
             // create div
-            const reviews = document.querySelector('main');
+            const reviews = document.querySelector('#reviews');
             const bookDiv = document.createElement('div');
 
             // manipulate div
@@ -57,7 +57,7 @@ class Book {
                 <h3 class="card-title">${this.title}</h3>
                 <h5>Reviews: </h5>
                 <ul>
-                    <li class="card-content">${review['body']}</li>
+                    <li class="card-content" data.review.id="${review['id']}">${review['body']}</li>
                 </ul>
             `
 
@@ -65,6 +65,7 @@ class Book {
             bookDiv.setAttribute('data.id', `${this.id}`)
             bookDiv.className = 'card'
             reviews.appendChild(bookDiv)
+            console.log(reviews)
         });
 
     }
