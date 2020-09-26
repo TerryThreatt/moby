@@ -6,21 +6,21 @@
     <title>Moby - Book Review App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="application/javascript" src="src/components/review.js"></script>
     <script type="application/javascript" src="src/index.js"></script>
 </head>
 <body>
 
     <div class="container">
-
         <header>
             <h2>Moby - Book Review App</h2>
-            <h5>You place to review your favorite books.</h5>
+            <h5>Your place to review your favorite books.</h5>
         </header>
 
         <div class="container">
-            <form class="search" action="action_page.php">
-                <input type="text" placeholder="Search for a book" name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+            <form class="search" id="searchForm">
+                <input type="text" placeholder="Search for a book" name="search" id="search">
+                <button type="submit" id="searchSubmit"><i class="fa fa-search"></i></button>
             </form>
         </div>
 
@@ -28,12 +28,13 @@
             <form class="review">
               <h3>Create a review!</h3>
 
-              <input type="textarea" name="review" value="" placeholder="Enter a review"/>
+              <textarea name="review" placeholder="Enter a review" id="review"></textarea>
+              <br>
               <input type="submit" name="submit" value="Create New Review"/>
             </form>
           </div>
 
-        <div id="reviews"></div>
+        <div id="books"></div>
 
     </div>
 
