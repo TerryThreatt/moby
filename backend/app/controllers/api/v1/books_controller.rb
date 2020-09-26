@@ -1,5 +1,5 @@
 
-class API::V1::BooksController < ApplicationController
+class Api::V1::BooksController < ApplicationController
   before_action :set_book, only: [:show, :update, :destroy]
 
   def index
@@ -28,5 +28,5 @@ class API::V1::BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:isbn, :title, :author, :genre)
     end
-    
+
 end
