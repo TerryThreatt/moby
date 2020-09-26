@@ -8,4 +8,8 @@
 
 
 # User
-User.create(username: 'terry.threatt', email: 'terry.threatt@gmail.com', password: 'password')
+book1 = Book.create(title: 'Moby Dick', author: 'Heman Melville' , genre: 'classic' )
+book2 = Book.create(title: 'Hamlet', author: 'William Shakespeare' , genre: 'classic')
+book3 = Book.create(title: 'The Adventures of Huckleberry Finn', author: 'Mark Twain', genre: 'classic')
+book4 = Book.create(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' , genre: 'classic' )
+book5 = Book.create(title: 'Great Expectations', author: 'Charles Dickens' , genre: 'classic')
