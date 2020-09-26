@@ -6,6 +6,7 @@ class Book {
         this.title = book.title
         this.author = book.author
         this.genre = book.genre
+        this.reviews = book.reviews 
 
         Book.allBooks.push(this)
     }
@@ -20,7 +21,7 @@ class Book {
 
         // manipulate div
         div.innerHTML = `
-            <h3 class="card-content">${this.title}</h3>
+            <h3 class="card-title">${this.title}</h3>
             <h4 class="card-content">${this.author}</h4>
             <h5 class="card-content">${this.genre}</h5>
         `
@@ -30,6 +31,31 @@ class Book {
         div.className = 'card'
         books.appendChild(div)
 
+        // render review
+        if (this.reviews === 0) {
+            let newReview = new Review(this)
+            newReview.renderNewReview()
+        }
+        else {
+            div.innerHTML = `
+                <ul>
+                    <h2>Reviews: </h2>
+                    <li>
+            `
+        }
+
     }
+
+    renderBookReviews() {
+
+
+        div.innerHTML = `
+                <ul>
+                    <h2>Reviews: </h2>
+                    <li>
+            `
+    }
+
+
 
 }
