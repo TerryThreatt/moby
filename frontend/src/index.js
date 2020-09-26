@@ -21,4 +21,18 @@ function getBooks() {
             newBook.renderBook()
         })
     })
+    .catch(err => alert(err))
+}
+
+function removeReview(e) {
+    e.preventDefault()
+    const id = e.target.id
+    fetch(`${ALLREVIEWS_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    })
+    .catch(err => alert(err.message))
 }

@@ -66,9 +66,9 @@ class Book {
 
             // remove button
             const button = document.createElement('button')
-            button.setAttribute("data.review.id", review['id'])
+            button.setAttribute("id", review['id'])
             button.innerText = 'Delete Review'
-            button.addEventListener('click', (e) => Review.removeReview(e))
+            button.addEventListener('click', (e) => removeReview(e))
             bookDiv.appendChild(button)
             console.log(reviews)
         });
