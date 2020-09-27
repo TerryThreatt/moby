@@ -1,12 +1,12 @@
 class Book {
     static allBooks = [];
 
-    constructor(book) {
-        this.id = book.id
-        this.title = book.title
-        this.author = book.author || "unknown"
-        this.genre = book.genre || "n/a"
-        this.reviews = book.reviews
+    constructor({id, title, author = "unknown", genre = "uncategorized", reviews = [] }) {
+        this.id = id
+        this.title = title
+        this.author = author
+        this.genre = genre
+        this.reviews = reviews
 
         Book.allBooks.push(this)
     }
@@ -72,7 +72,7 @@ class Book {
                 <h3 class="card-title">Title: ${this.title}</h3>
                 <h5>Review: </h5>
                 <ul>
-                    <li class="card-content" data.review.id="${review['id']}">Body: ${review['body']}</li>
+                    <li class="card-content" data.review.id="${review['id']}">${review['body']}</li>
                 </ul>
             `
 
@@ -87,7 +87,6 @@ class Book {
             button.innerText = 'Delete Review'
             button.addEventListener('click', (e) => removeReview(e))
             bookDiv.appendChild(button)
-            console.log(reviews)
         });
 
     }

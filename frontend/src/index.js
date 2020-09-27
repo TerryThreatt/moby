@@ -6,6 +6,8 @@ const ALLREVIEWS_URL = `${BACKEND_URL}/reviews`;
 
 document.addEventListener('DOMContentLoaded', function(e) {
     getBooks(e)
+    const bookForm = document.querySelector('.review');
+    bookForm.addEventListener("submit", e => bookHandler(e))
 });
 
 
@@ -28,29 +30,34 @@ function getBooks(e) {
 
 function bookHandler(e) {
     e.preventDefault()
-    const title = document.querySelector("#bookTitle")
-    const author = document.querySelector("#bookAuthor")
-    const genre = document.querySelector("#bookGenre")
-    const review = document.querySelector("#bookReview")
-    addBook(title, author, genre, review)
+    const title = document.querySelector("#bookTitle").value
+    const author = document.querySelector("#bookAuthor").value
+    const genre = document.querySelector("#bookGenre").value
+    const reviews = document.querySelector("#bookReview").value
+    addBook(title, author, genre, reviews)
 }
 
-function addBook(title, author, genre, review) {
-    const bookData = {title, author, genre, review}
+function addBook(title, author, genre, reviews) {
+    const bookData = {title, author, genre, reviews}
     fetch(`${ALLBOOKS_URL}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify(bookData)
+        body: JSON.stringify({
+            title: bookData.title,
+            author: bookData.author,
+            genre: bookData.genre,
+            reviews: bookData.reviews
+        })
     })
     .then(response => response.json())
     .then(book => {
-       new Book(book)
-       addReview(book, review)
+       let newBook = new Book(book)
+       addReview(newBook.id, reviews) // maybe a better way of passing down review body
     })
-    .catch(err => alert("Please try again."))
+    .catch(err => alert("Book Failed: Please try again."))
 
 }
 
@@ -61,22 +68,25 @@ function reviewHandler(e) {
     addReview(bookInput, bodyInput)
 }
 
-function addReview(book_id, review) {
-    const reviewData = {book_id, review}
+function addReview(book_id, body) {
+    const reviewData = {book_id, body}
     fetch(`${ALLREVIEWS_URL}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify(reviewData)
+        body: JSON.stringify({
+            book_id: reviewData.book_id,
+            body: reviewData.body
+        })
     })
     .then(response => response.json())
     .then(review => {
        new Review(review)
        location.reload()
     })
-    .catch(err => alert("Please try again."))
+    .catch(err => alert("Review Failed: Please try again."))
 }
 
 function removeReview(e) {
@@ -89,6 +99,5 @@ function removeReview(e) {
             "Accept": "application/json"
         }
     })
-    .then(location.reload())
     .catch(err => alert("Please try again"))
 }

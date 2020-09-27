@@ -1,10 +1,10 @@
 class Review {
     static allReviews = [];
 
-    constructor(book, review){
-        this.id = review.id
-        this.book_id = book.id
-        this.body = review
+    constructor({id, book_id, body = []}){
+        this.id = id
+        this.book = book_id
+        this.body = body
 
         Review.allReviews.push(this)
     }
