@@ -3,11 +3,10 @@ class Review {
 
     constructor(book, review){
         this.id = review.id
-        this.book = book.id
-        this.body = ""
+        this.book_id = book.id
+        this.body = review
 
         Review.allReviews.push(this)
     }
-
 
 }

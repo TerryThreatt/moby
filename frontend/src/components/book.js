@@ -29,10 +29,11 @@ class Book {
             <h3 class="card-title">Title: ${this.title}</h3>
             <h5 class="card-content">Author: ${this.author}</h5>
             <h5 class="card-content">Genre: ${this.genre}</h5>
+
         `
             // insert div
             bookDiv.setAttribute('data.id', `${this.id}`)
-            bookDiv.className = 'card'
+            bookDiv.className = 'card col s6'
             books.appendChild(bookDiv)
 
             // add button
