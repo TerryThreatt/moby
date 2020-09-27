@@ -2,11 +2,45 @@ body {
   margin: 0;
   padding: 0;
   font-family: monospace;
+  background: #f4ffff;
 }
 
 .container {
+  text-align: center;
   padding: 1rem;
-  align-content: center;
+  align-content: justify;
   height: auto;
-  opacity: .8;
+}
+
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  border-radius: 3px;
+  padding: 4rem;
+  width: 30rem;
+  height: 30rem;
+  display: inline-grid;
+  margin: 3rem 4rem;
+}
+
+button {
+  position: relative;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  font-size: 18px;
+  justify-self: center;
+}
+
+input {
+  position: relative;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  font-size: 18px;
+  justify-self: center;
+}
+
+h6 {
+  text-align: left;
 }

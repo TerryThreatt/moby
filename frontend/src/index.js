@@ -99,5 +99,8 @@ function removeReview(e) {
             "Accept": "application/json"
         }
     })
+    .then(response => {
+        location.reload()
+    })
     .catch(err => alert("Please try again"))
 }
