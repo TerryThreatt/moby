@@ -26,19 +26,35 @@ class Book {
         else {
             // manipulate div
             bookDiv.innerHTML = `
-            <h3 class="card-title">${this.title}</h3>
-            <h5 class="card-content">${this.author}</h5>
-            <h5 class="card-content">${this.genre}</h5>
+            <h3 class="card-title">Title: ${this.title}</h3>
+            <h5 class="card-content">Author: ${this.author}</h5>
+            <h5 class="card-content">Genre: ${this.genre}</h5>
         `
             // insert div
             bookDiv.setAttribute('data.id', `${this.id}`)
             bookDiv.className = 'card'
             books.appendChild(bookDiv)
 
-            // new review
-            let newReview = new Review(this)
-            newReview.renderNewReview()
+            // add button
+            const button = document.createElement('button')
+            button.setAttribute("id", this.id)
+            button.innerText = 'Add Review'
+            button.addEventListener('click', (e) => {
+                // new review
+                const span = document.createElement('span')
+                const form = this.reviewForm()
+                span.appendChild(form)
+                bookDiv.appendChild(span)
+                button.remove()
+            })
+            bookDiv.appendChild(button)
+
+            console.log()
+
+
         }
+
+
 
     }
 
@@ -52,10 +68,10 @@ class Book {
 
             // manipulate div
             bookDiv.innerHTML = `
-                <h3 class="card-title">${this.title}</h3>
+                <h3 class="card-title">Title: ${this.title}</h3>
                 <h5>Review: </h5>
                 <ul>
-                    <li class="card-content" data.review.id="${review['id']}">${review['body']}</li>
+                    <li class="card-content" data.review.id="${review['id']}">Body: ${review['body']}</li>
                 </ul>
             `
 
@@ -74,6 +90,32 @@ class Book {
         });
 
     }
+
+    reviewForm() {
+        const form = document.createElement('form')
+        form.setAttribute('class', 'addReview')
+        form.setAttribute('id', this.id)
+        const label = document.createElement('label')
+        label.innerText = "Add New Review"
+
+        const textArea = document.createElement('textarea')
+        textArea.name = 'reviewBody'
+        textArea.value = ''
+
+        const formButton = document.createElement('input')
+        formButton.type = 'submit'
+        formButton.value = 'Submit Review'
+        formButton.setAttribute('id', this.id)
+        formButton.setAttribute('name', 'revSubmitBtn')
+
+        form.append(label)
+        form.append(textArea)
+        form.append(formButton)
+
+        return form
+    }
+
+
 
 
 

@@ -1,9 +1,9 @@
 class Review {
     static allReviews = [];
 
-    constructor(book){
+    constructor(review){
         this.id = review.id
-        this.book = book
+        this.book = review.book
         this.body = ""
 
         Review.allReviews.push(this)
@@ -13,7 +13,7 @@ class Review {
 
     }
 
-    
+
 
 
 

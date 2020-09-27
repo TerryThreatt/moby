@@ -5,23 +5,30 @@ const ALLBOOKS_URL = `${BACKEND_URL}/books`;
 const ALLREVIEWS_URL = `${BACKEND_URL}/reviews`;
 
 // elements
-const form = document.querySelector('.search');
+
 
 document.addEventListener('DOMContentLoaded', function(e) {
-    getBooks()
+    getBooks(e)
 });
 
+const reviewForm = document.querySelector('.addReview');
+    reviewForm.addEventListener("submit", e => reviewHandler(e))
+
 // load books
-function getBooks() {
+function getBooks(e) {
+    e.preventDefault()
     fetch(ALLBOOKS_URL)
     .then(response => response.json())
     .then(books => {
+        if(books.message) {
+            alert(books.message)
+        } else
         books.forEach(book => {
             let newBook = new Book(book)
             newBook.renderBook()
         })
     })
-    .catch(err => alert(err))
+    .catch(err => alert(err.message))
 }
 
 function removeReview(e) {
@@ -34,5 +41,31 @@ function removeReview(e) {
             "Accept": "application/json"
         }
     })
-    .catch(err => alert(err.message))
+    .then(getBooks())
+    .catch(err => alert("Please try again"))
+}
+
+function addReview(e) {
+    e.preventDefault()
+    const id = e.target.id
+    fetch(`${ALLREVIEWS_URL}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(review => {
+       new Review(review)
+       getBooks()
+    })
+    .catch(err => alert("Please try again."))
+}
+
+function reviewHandler(e) {
+    e.preventDefault()
+    const bodyInput = document.querySelector('[name = reviewBody]').value
+    const bookInput = document.querySelector('[name =]')
+    addReview(bodyInput, bookInput)
 }
