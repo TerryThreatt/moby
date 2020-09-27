@@ -4,7 +4,7 @@ class Book {
     constructor(book) {
         this.id = book.id
         this.title = book.title
-        this.author = book.author
+        this.author = book.author || "unknown"
         this.genre = book.genre || "n/a"
         this.reviews = book.reviews
 
@@ -46,11 +46,11 @@ class Book {
                 span.appendChild(form)
                 bookDiv.appendChild(span)
                 button.remove()
+
+                const reviewForm = document.querySelector('.addReview');
+                reviewForm.addEventListener("submit", e => reviewHandler(e))
             })
             bookDiv.appendChild(button)
-
-            console.log()
-
 
         }
 
@@ -101,6 +101,7 @@ class Book {
         const textArea = document.createElement('textarea')
         textArea.name = 'reviewBody'
         textArea.value = ''
+        textArea.id = 'reviewBody'
 
         const formButton = document.createElement('input')
         formButton.type = 'submit'
@@ -114,9 +115,5 @@ class Book {
 
         return form
     }
-
-
-
-
 
 }

@@ -4,15 +4,10 @@ const BACKEND_URL = 'http://localhost:3000/api/v1';
 const ALLBOOKS_URL = `${BACKEND_URL}/books`;
 const ALLREVIEWS_URL = `${BACKEND_URL}/reviews`;
 
-// elements
-
-
 document.addEventListener('DOMContentLoaded', function(e) {
     getBooks(e)
 });
 
-const reviewForm = document.querySelector('.addReview');
-    reviewForm.addEventListener("submit", e => reviewHandler(e))
 
 // load books
 function getBooks(e) {
@@ -31,6 +26,59 @@ function getBooks(e) {
     .catch(err => alert(err.message))
 }
 
+function bookHandler(e) {
+    e.preventDefault()
+    const title = document.querySelector("#bookTitle")
+    const author = document.querySelector("#bookAuthor")
+    const genre = document.querySelector("#bookGenre")
+    const review = document.querySelector("#bookReview")
+    addBook(title, author, genre, review)
+}
+
+function addBook(title, author, genre, review) {
+    const bookData = {title, author, genre, review}
+    fetch(`${ALLBOOKS_URL}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(bookData)
+    })
+    .then(response => response.json())
+    .then(book => {
+       new Book(book)
+       addReview(book, review)
+    })
+    .catch(err => alert("Please try again."))
+
+}
+
+function reviewHandler(e) {
+    e.preventDefault()
+    const bodyInput = document.querySelector('#reviewBody').value
+    const bookInput = e.target.id
+    addReview(bookInput, bodyInput)
+}
+
+function addReview(book_id, review) {
+    const reviewData = {book_id, review}
+    fetch(`${ALLREVIEWS_URL}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(reviewData)
+    })
+    .then(response => response.json())
+    .then(review => {
+       new Review(review)
+       location.reload()
+    })
+    .catch(err => alert("Please try again."))
+}
+
 function removeReview(e) {
     e.preventDefault()
     const id = e.target.id
@@ -41,31 +89,6 @@ function removeReview(e) {
             "Accept": "application/json"
         }
     })
-    .then(getBooks())
+    .then(location.reload())
     .catch(err => alert("Please try again"))
-}
-
-function addReview(e) {
-    e.preventDefault()
-    const id = e.target.id
-    fetch(`${ALLREVIEWS_URL}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        }
-    })
-    .then(response => response.json())
-    .then(review => {
-       new Review(review)
-       getBooks()
-    })
-    .catch(err => alert("Please try again."))
-}
-
-function reviewHandler(e) {
-    e.preventDefault()
-    const bodyInput = document.querySelector('[name = reviewBody]').value
-    const bookInput = document.querySelector('[name =]')
-    addReview(bodyInput, bookInput)
 }

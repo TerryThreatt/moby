@@ -1,21 +1,13 @@
 class Review {
     static allReviews = [];
 
-    constructor(review){
+    constructor(book, review){
         this.id = review.id
-        this.book = review.book
+        this.book = book.id
         this.body = ""
 
         Review.allReviews.push(this)
     }
-
-    renderNewReview() {
-
-    }
-
-
-
-
 
 
 }

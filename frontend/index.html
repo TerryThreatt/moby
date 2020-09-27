@@ -29,11 +29,16 @@
 
         <div class="container">
             <form class="review">
-              <h3>Create a book review!</h3>
-                <input type="text" placeholder="Book" id = "book" />
-                <input type="text" placeholder="Title" id ="bookTitle" />
+              <h3>Create a new book review</h3>
+                <br>
+                <h6>Title:</h6>
+                <input type="text" placeholder="Title" id = "bookTitle" />
+                <h6>Author:</h6>
+                <input type="text" placeholder="Author" id = "bookAuthor" />
+                <h6>Genre:</h6>
                 <input type="text" placeholder="genre" id ="bookGenre" />
-              <textarea name="review" placeholder="Enter a review" id="review"></textarea>
+                <h6>Review:</h6>
+              <textarea name="bookReview" placeholder="Enter a review" id="bookReview"></textarea>
               <br>
               <input type="submit" name="submit" value="Create New Review"/>
             </form>
@@ -43,11 +48,13 @@
             <div id="container">
                 <div id="reviews">
                     <h4>Current Reviews:</h4>
+                    <br>
                      <!--Review-->
                 </div>
                 <hr>
                 <div id="books">
                     <h4>Current Available Books:</h4>
+                    <br>
                     <!--Books-->
                 </div>
             </div>
