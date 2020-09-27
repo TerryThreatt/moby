@@ -14,7 +14,7 @@ $ git clone 'git@github.com:TerryThreatt/moby.git'
 navigate to the backend: 
 
 ```
-$ cd moby-backend
+$ cd backend
 ```
 
 load project dependencies: 
