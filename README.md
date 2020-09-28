@@ -1,3 +1,6 @@
+![Moby](frontend/Moby-Book-Review-App.png)
+
+
 # Moby
 
 Moby is a book review app that allows you to add new books and review each book. This project was setup by created a new Rails API on the backend and serving data up to a Vanilla Javascript frontend. 
