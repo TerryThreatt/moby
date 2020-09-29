@@ -1,32 +1,31 @@
 
 class Api::V1::BooksController < ApplicationController
-  before_action :set_book, only: [:show, :update, :destroy]
 
   def index
-    books = Book.all
+    @books = Book.all
 
-    render json: books
+    render json: @books
   end
 
   def show
-    book = Book.find(params[:id])
-    render json: book
+    @book = Book.find(params[:id])
+    render json: @book
   end
 
   def create
-    book = Book.new(book_params)
+    @book = Book.new(book_params)
 
-    if book.save
-      render json: book, status: :created
+    if @book.save
+      render json: @book, status: :created
     else
-      render json: book.errors, status: :unprocessable_entity
+      render json: @book.errors, status: :unprocessable_entity
     end
   end
 
   private
 
     def book_params
-      params.require(:book).permit(:isbn, :title, :author, :genre)
+      params.require(:book).permit(:title, :author, :genre, review: [:body])
     end
 
 end
