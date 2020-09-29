@@ -28,7 +28,7 @@ class Book {
             bookDiv.innerHTML = `
             <h3 class="card-title">Title: <br>${this.title}</h3>
             <h5 class="card-content">Author: <br>${this.author}</h5>
-            <h5 class="card-content">Genre: <br>${this.genre}</h5>
+            <h5 class="card-content">Genre:  ${this.genre}</h5>
 
         `
             // insert div
@@ -67,7 +67,7 @@ class Book {
 
             // manipulate div
             bookDiv.innerHTML = `
-                <h3 class="card-title">Title: ${this.title}</h3>
+                <h3 class="card-title">Title: <br><br>${this.title}</h3>
                 <br>
                 <h5>Review: </h5>
                 <br>

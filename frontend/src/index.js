@@ -53,7 +53,7 @@ function addBook(title, author, genre, reviews) {
     })
     .then(response => response.json())
     .then(book => {
-       let newBook = new Book(book)
+       const newBook = new Book(book)
        addReview(newBook.id, reviews) // maybe a better way of passing down review body
     })
     .catch(err => alert("Book Failed: Please try again."))
@@ -62,8 +62,8 @@ function addBook(title, author, genre, reviews) {
 
 function reviewHandler(e) {
     e.preventDefault()
-    const bodyInput = document.querySelector('#reviewBody').value
-    const bookInput = e.target.id
+    let bodyInput = document.querySelector('#reviewBody').value
+    let bookInput = e.target.id
     addReview(bookInput, bodyInput)
 }
 
@@ -90,7 +90,7 @@ function addReview(book_id, body) {
 
 function removeReview(e) {
     e.preventDefault()
-    const id = e.target.id
+    let id = e.target.id
     fetch(`${ALLREVIEWS_URL}/${id}`, {
         method: "DELETE",
         headers: {
