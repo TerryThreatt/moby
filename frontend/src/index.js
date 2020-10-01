@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function(e) {
     getBooks(e)
     const bookForm = document.querySelector('.review');
     bookForm.addEventListener("submit", e => bookHandler(e))
+    const searchForm = document.querySelector('.searchBooks');
+    searchForm.addEventListener("submit", e => searchBooks(e));
 });
 
 
@@ -102,4 +104,46 @@ function removeReview(e) {
         location.reload()
     })
     .catch(err => alert("Please try again"))
+}
+
+function searchBooks(e) {
+    e.preventDefault()
+    let searchAuthor = document.getElementById('searchAuthor').value
+    // filter value
+    const availableBook = Book.allBooks.filter(book => book.author === searchAuthor)[0];
+
+    // delete all other available book
+    const availableBooks = document.getElementById("books")
+    availableBooks.innerText = ""
+
+    // display searched book
+    const bookDiv = document.createElement('div');
+
+    // manipulate div
+    bookDiv.innerHTML = `
+    <h3 class="card-title">Title: <br>${availableBook.title}</h3>
+    <h5 class="card-content">Author: <br>${availableBook.author}</h5>
+    <h5 class="card-content">Genre:  ${availableBook.genre}</h5>
+`
+    // insert div
+    bookDiv.setAttribute('data.id', `${availableBook.id}`)
+    bookDiv.className = 'card col s6'
+    books.appendChild(bookDiv)
+
+    // add button
+    const button = document.createElement('button')
+    button.setAttribute("id", availableBook.id)
+    button.innerText = 'Add Review'
+    button.addEventListener('click', (e) => {
+        // new review
+        const span = document.createElement('span')
+        const form = this.reviewForm()
+        span.appendChild(form)
+        bookDiv.appendChild(span)
+        button.remove()
+
+        const reviewForm = document.querySelector('.addReview');
+        reviewForm.addEventListener("submit", e => reviewHandler(e))
+    })
+    bookDiv.appendChild(button)
 }

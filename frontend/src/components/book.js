@@ -15,7 +15,7 @@ class Book {
 
     renderBook() {
         const books = document.querySelector('#books');
-
+        
         // create div
         const bookDiv = document.createElement('div');
 
