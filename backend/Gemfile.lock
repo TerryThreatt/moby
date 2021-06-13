@@ -165,11 +165,12 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   listen (~> 3.2)
-  pg (>= 0.18, < 2.0)
+  pg
   pry
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.2)
+  rake
   spring
   spring-watcher-listen (~> 2.0.0)
 
