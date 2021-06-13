@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: d5vfi7jd142hpb
-  username: qbtigorovtgoqe
-  password: 353c7fc0fbe49a8175e895de7c9697cd7609c489b90cc95294052af3164402d5
+  database: backend_production
+  username: backend
+  password: <%= ENV['BACKEND_DATABASE_PASSWORD'] %>
