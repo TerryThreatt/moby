@@ -1,5 +1,5 @@
 // routes
-const BACKEND_URL = 'http://localhost:3000/api/v1';
+const BACKEND_URL = 'https://moby-abackend.herokuapp.com/';
 const ALLBOOKS_URL = `${BACKEND_URL}/books`;
 const ALLREVIEWS_URL = `${BACKEND_URL}/reviews`;
 
