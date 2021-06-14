@@ -1,10 +1,10 @@
 # Moby
-[Live App](https://moby-app-threatt.herokuapp.com/)
+[Live App](https://terrythreatt.github.io/moby/)
 
 Moby is a book review app that allows you to add new books and review each book. This project was setup by created a new Rails API on the backend and serving data up to a Vanilla Javascript frontend.
 
 
-![Moby](frontend/Moby-Book-Review-App.png)
+![Moby](Moby-Book-Review-App.png)
 
 ### Getting Started
 
@@ -13,42 +13,6 @@ Here is a step-by-step guide to get the project started.
 clone the project:
 ```
 $ git clone 'git@github.com:TerryThreatt/moby.git'
-```
-
-navigate to the backend:
-
-```
-$ cd backend
-```
-
-load project dependencies:
-
-```
-$ bundle install
-```
-
-create database:
-
-```
-$ rake db:create
-```
-
-migrate tables:
-
-```
-$ rake db:migrate
-```
-
-start with some book seed data:
-
-```
-$ rake db:seed
-```
-
-start up a server:
-
-```
-$ rails s
 ```
 
 get started with the frontend:
