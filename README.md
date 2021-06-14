@@ -1,5 +1,5 @@
 # Moby
-[Live App](https://terrythreatt.github.io/moby/)
+[Live App](https://jovial-wozniak-cc011e.netlify.app/)
 
 Moby is a book review app that allows you to add new books and review each book. This project was setup by created a new Rails API on the backend and serving data up to a Vanilla Javascript frontend.
 
